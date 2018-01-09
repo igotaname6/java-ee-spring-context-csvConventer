@@ -13,6 +13,7 @@ public class TableOutputFormatter implements OutputFormatter {
         String[] headers = file.get(0).keySet().toArray(new String[0]);
         file.remove(0);
         
+        //sets table sizes
         int columnsCount = headers.length;
         int rowsCount = file.size();
     
