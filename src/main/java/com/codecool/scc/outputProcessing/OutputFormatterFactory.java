@@ -12,7 +12,7 @@ public class OutputFormatterFactory {
         } else if(outputFormat == OutputFormat.XML){
             outputFormatter = new XmlOutputFormatter();
         } else if(outputFormat == OutputFormat.TABLE){
-            outputFormatter = new XmlOutputFormatter();
+            outputFormatter = new TableOutputFormatter();
         }
         return outputFormatter;
     }
