@@ -1,19 +1,22 @@
 package com.codecool.scc.outputProcessing;
 
-import com.codecool.scc.OutputFormat;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class OutputFormatterFactory {
     
-    public OutputFormatter createByFormat(OutputFormat outputFormat){
+    public OutputFormatter createByFormat(OutputType outputType){
+        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+        
         OutputFormatter  outputFormatter = null;
         
-        if(outputFormat  == OutputFormat.JSON){
-            outputFormatter = new JsonOutputFormatter();
-        } else if(outputFormat == OutputFormat.XML){
-            outputFormatter = new XmlOutputFormatter();
-        } else if(outputFormat == OutputFormat.TABLE){
-            outputFormatter = new TableOutputFormatter();
+        if(outputType == OutputType.JSON){
+            outputFormatter = (OutputFormatter) ctx.getBean("jsonOutputFormatter");
+        } else if(outputType == OutputType.XML){
+            outputFormatter = (OutputFormatter) ctx.getBean("xmlOutputFormatter");
+        } else if(outputType == OutputType.TABLE){
+            outputFormatter = (OutputFormatter) ctx.getBean("tableOutputFormatter");
+        } else {
+            throw new InvalidOutputTypeException(outputType);
         }
-        return outputFormatter;
-    }
+
 }

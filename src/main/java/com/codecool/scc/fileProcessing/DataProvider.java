@@ -1,4 +1,4 @@
-package com.codecool.scc.conventers;
+package com.codecool.scc.fileProcessing;
 
 import java.io.IOException;
 import java.util.List;

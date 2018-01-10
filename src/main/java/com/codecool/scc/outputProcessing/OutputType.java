@@ -1,15 +1,13 @@
-package com.codecool.scc;
+package com.codecool.scc.outputProcessing;
 
-import com.codecool.scc.outputProcessing.InvalidOutputTypeException;
-
-public enum OutputFormat {
+public enum OutputType {
     TABLE("table"),
     JSON("json"),
     XML("xml");
 
     private final String outputName;
 
-    OutputFormat(String outputName){
+    OutputType(String outputName){
         this.outputName = outputName;
     }
 
@@ -17,7 +15,7 @@ public enum OutputFormat {
         return outputName;
     }
     
-    public static OutputFormat getOutputFormatFromString(String string){
+    public static OutputType getOutputFormatFromString(String string){
         if(string.toLowerCase().equals("table")){
             return TABLE;
         } else if(string.toLowerCase().equals("json")){
