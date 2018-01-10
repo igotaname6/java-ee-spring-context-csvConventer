@@ -1,6 +1,8 @@
 package com.codecool.scc.fileProcessing;
 
 
+import org.springframework.stereotype.Component;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,6 +11,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+@Component
 public class FileReader implements DataProvider {
     
     public List<Map<String, String>> readData(String fileUrl) throws IOException {

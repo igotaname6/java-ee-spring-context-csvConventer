@@ -4,12 +4,15 @@ import com.codecool.scc.fileProcessing.DataProvider;
 import com.codecool.scc.outputProcessing.OutputType;
 import com.codecool.scc.outputProcessing.OutputFormatter;
 import com.codecool.scc.outputProcessing.OutputFormatterFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+@Component
 public class SimpleCsvConventer {
 
     private OutputType outputType;

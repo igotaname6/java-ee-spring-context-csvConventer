@@ -1,7 +1,8 @@
 package com.codecool.scc.outputProcessing;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OutputFormatterFactory {
     
     public OutputFormatter createByFormat(OutputType outputType) {

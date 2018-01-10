@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:contex="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id = "simpleCsvConventer" class="com.codecool.scc.controllers.SimpleCsvConventer">
-        <constructor-arg ref="fileReader"/>
-        <constructor-arg ref="outputFormatterFactory"/>
-    </bean>
+    <contex:annotation-config/>
+    <contex:component-scan base-package="com.codecool.scc"/>
 
-    <bean id = "fileReader" class="com.codecool.scc.fileProcessing.FileReader"/>
+    <!--<bean id = "simpleCsvConventer" class="com.codecool.scc.controllers.SimpleCsvConventer">-->
+        <!--<constructor-arg ref="fileReader"/>-->
+        <!--<constructor-arg ref="outputFormatterFactory"/>-->
+    <!--</bean>-->
 
-    <bean id = "jsonOutputFormatter" class = "com.codecool.scc.outputProcessing.JsonOutputFormatter"/>
-    <bean id = "tableOutputFormatter" class = "com.codecool.scc.outputProcessing.TableOutputFormatter"/>
-    <bean id = "xmlOutputFormatter" class = "com.codecool.scc.outputProcessing.XmlOutputFormatter"/>
+    <!--<bean id = "fileReader" class="com.codecool.scc.fileProcessing.FileReader"/>-->
 
-    <bean id = "outputFormatterFactory" class="com.codecool.scc.outputProcessing.OutputFormatterFactory"/>
+    <!--<bean id = "outputFormatterFactory" class="com.codecool.scc.outputProcessing.OutputFormatterFactory"/>-->
 </beans>
