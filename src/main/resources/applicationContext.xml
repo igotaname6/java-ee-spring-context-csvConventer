@@ -5,11 +5,10 @@
 
     <bean id = "simpleCsvConventer" class="com.codecool.scc.controllers.SimpleCsvConventer">
         <constructor-arg ref="fileReader"/>
+        <constructor-arg ref="outputFormatterFactory"/>
     </bean>
 
     <bean id = "fileReader" class="com.codecool.scc.fileProcessing.FileReader"/>
-
-    <bean id = "invalidOutputTypeException" class="com.codecool.scc.outputProcessing.InvalidOutputTypeException"/>
 
     <bean id = "jsonOutputFormatter" class = "com.codecool.scc.outputProcessing.JsonOutputFormatter"/>
     <bean id = "tableOutputFormatter" class = "com.codecool.scc.outputProcessing.TableOutputFormatter"/>

@@ -14,11 +14,12 @@ public class SimpleCsvConventer {
 
     private OutputType outputType;
     private DataProvider dataProvider;
-
-    public SimpleCsvConventer(DataProvider dataProvider){
-        //Default value of outputType use if no type is given in convert method.
+    private OutputFormatterFactory outputFormatterFactory;
+    
+    public SimpleCsvConventer(DataProvider dataProvider, OutputFormatterFactory outputFormatterFactory) {
         this.outputType = OutputType.TABLE;
         this.dataProvider = dataProvider;
+        this.outputFormatterFactory = outputFormatterFactory;
     }
     
     public void convert(String fileUrl, OutputType outputType) throws IOException {
@@ -28,10 +29,8 @@ public class SimpleCsvConventer {
     }
 
     public void convert(String fileUrl) throws IOException {
-        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-        OutputFormatterFactory factory = (OutputFormatterFactory) ctx.getBean("outputFormatterFactory");
         
-        OutputFormatter outputFormatter = factory.createByFormat(this.outputType);
+        OutputFormatter outputFormatter = outputFormatterFactory.createByFormat(this.outputType);
         List<Map<String, String>> dataToConvert = dataProvider.readData(fileUrl);
         outputFormatter.printToConsole(dataToConvert);
     }
